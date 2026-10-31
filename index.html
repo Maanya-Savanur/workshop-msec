@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Healthy Hobbyist | Lifestyle Blog</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #faf9f5;
+    color: #303c32;
+    line-height: 1.6;
+}
+
+header {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px #00000008;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #46634d;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444;
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #8b9f76;
+}
+
+.hero {
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    background:
+      linear-gradient(90deg, #263a2dcc, #263a2d55),
+      url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1800')
+      center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 65px);
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 17px;
+    margin-bottom: 30px;
+    color: #f0f0e9;
+}
+
+.tag {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    color: #b6ce9b;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    background: #d4dfbd;
+    color: #334333;
+    text-decoration: none;
+    padding: 13px 27px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 75px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: #777;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background: #eef0e7;
+    text-align: center;
+    padding: 30px 15px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    background: #e0e8d7;
+}
+
+.category span {
+    font-size: 35px;
+}
+
+.category h3 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 12px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.blog-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #00000008;
+    transition: .3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 23px;
+}
+
+.blog-content small {
+    color: #82946f;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.blog-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.blog-content p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #58754d;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.about {
+    background: #e9eee3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    color: #606b5d;
+    margin-bottom: 20px;
+}
+
+.newsletter {
+    text-align: center;
+    background: #526a51;
+    color: white;
+}
+
+.newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.newsletter p {
+    margin-bottom: 25px;
+    color: #e0e7dc;
+}
+
+.newsletter form {
+    display: flex;
+    max-width: 450px;
+    margin: auto;
+    gap: 10px;
+}
+
+.newsletter input {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+}
+
+.newsletter button {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 30px;
+    background: #d4dfbd;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+footer {
+    background: #263a2d;
+    color: #ddd;
+    text-align: center;
+    padding: 30px;
+    font-size: 13px;
+}
+
+@media(max-width: 850px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 470px;
+        padding: 50px 7%;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 55px 7%;
+    }
+
+    .newsletter form {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">The Healthy Hobbyist.</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Explore</a>
+        <a href="#blog">Blog</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">Live Well • Feel Good • Explore More</span>
+        <h1>Find Joy in the Little Things.</h1>
+        <p>
+            Discover inspiring hobbies, healthy habits and
+            simple ways to make everyday life more beautiful.
+        </p>
+        <a href="#blog" class="btn">Explore the Blog →</a>
+    </div>
+</section>
+
+<!-- Categories -->
+<section id="categories">
+    <div class="section-heading">
+        <h2>Explore Your Interests</h2>
+        <p>A little inspiration for a happier, healthier you.</p>
+    </div>
+
+    <div class="categories">
+        <div class="category">
+            <span>📚</span>
+            <h3>Reading</h3>
+            <p>Books & stories</p>
+        </div>
+
+        <div class="category">
+            <span>🧘</span>
+            <h3>Fitness</h3>
+            <p>Move & breathe</p>
+        </div>
+
+        <div class="category">
+            <span>🥗</span>
+            <h3>Healthy Food</h3>
+            <p>Eat mindfully</p>
+        </div>
+
+        <div class="category">
+            <span>🌱</span>
+            <h3>Gardening</h3>
+            <p>Grow something</p>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section id="blog">
+    <div class="section-heading">
+        <h2>Latest Stories</h2>
+        <p>Fresh ideas to inspire your everyday lifestyle.</p>
+    </div>
+
+    <div class="blog-grid">
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800" alt="Books and reading">
+            <div class="blog-content">
+                <small>Hobbies • Reading</small>
+                <h3>Why Reading 20 Minutes a Day Matters</h3>
+                <p>Explore how reading can become a relaxing habit that encourages curiosity and lifelong learning.</p>
+                <a href="#about" class="read-more">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800" alt="Healthy salad">
+            <div class="blog-content">
+                <small>Wellness • Nutrition</small>
+                <h3>Simple Ways to Eat Healthier</h3>
+                <p>Discover easy meal ideas and small food choices that can support a balanced lifestyle.</p>
+                <a href="#about" class="read-more">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800" alt="Meditation">
+            <div class="blog-content">
+                <small>Mindfulness • Fitness</small>
+                <h3>Start Your Morning with Mindfulness</h3>
+                <p>Build a peaceful morning routine with stretching, meditation and mindful breathing.</p>
+                <a href="#about" class="read-more">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800" alt="Home gardening">
+            <div class="blog-content">
+                <small>Hobbies • Gardening</small>
+                <h3>Growing Happiness in Your Garden</h3>
+                <p>Learn how caring for plants can be a rewarding and creative everyday hobby.</p>
+                <a href="#about" class="read-more">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800" alt="Yoga exercise">
+            <div class="blog-content">
+                <small>Fitness • Wellness</small>
+                <h3>Easy Yoga for Everyday Energy</h3>
+                <p>Try gentle movements and stretches to add more activity to your daily routine.</p>
+                <a href="#about" class="read-more">Read More →</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800" alt="Fresh healthy ingredients">
+            <div class="blog-content">
+                <small>Food • Lifestyle</small>
+                <h3>Make Healthy Eating Enjoyable</h3>
+                <p>Experiment with fresh ingredients, colorful meals and simple homemade recipes.</p>
+                <a href="#about" class="read-more">Read More →</a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900" alt="Peaceful nature">
+
+    <div>
+        <span class="tag">A LITTLE ABOUT US</span>
+        <h2>Life Is Better When You Make Time for Yourself.</h2>
+        <p>
+            Welcome to The Healthy Hobbyist, a space dedicated
+            to finding happiness through hobbies and healthy living.
+        </p>
+        <p>
+            Whether it is discovering a new book, preparing a
+            nutritious meal, practicing yoga or growing plants,
+            we believe small daily activities can make life meaningful.
+        </p>
+        <a href="#categories" class="btn">Discover More</a>
+    </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+    <h2>Let's Grow Together 🌿</h2>
+    <p>Subscribe to receive lifestyle tips, hobby ideas and weekly inspiration.</p>
+
+    <form id="subscribeForm">
+        <input type="email" id="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <div id="message"></div>
+</section>
+
+<footer>
+    <p>© 2026 The Healthy Hobbyist. All Rights Reserved.</p>
+    <p>Made with ♥ for a healthier and happier lifestyle.</p>
+</footer>
+
+<script>
+document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message");
+
+    message.textContent = "Thank you for subscribing! 🌿";
+    this.reset();
+});
+</script>
+
+</body>
+</html>
